@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Career Quiz</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #2c003e 0%, #6a0dad 50%, #000000 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #6a0dad;
+        }
+
+        .question-container {
+            margin-top: 20px;
+        }
+
+        .question {
+            font-size: 1.3em;
+            color: #2c003e;
+            margin-bottom: 15px;
+        }
+
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .option {
+            padding: 15px;
+            border: 2px solid #6a0dad;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+            background: white;
+            min-width: 40%;
+            text-align: center;
+            color: #2c003e;
+        }
+
+        .option:hover, .option.selected {
+            background: #6a0dad;
+            color: white;
+        }
+
+        .progress {
+            height: 10px;
+            background: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: #6a0dad;
+            transition: width 0.5s ease;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            background: #6a0dad;
+            color: white;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .result {
+            font-size: 1.5em;
+            color: #2c003e;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Fashion Career Quiz</h1>
+            <p>Find out if fashion design is your true calling!</p>
+        </div>
+
+        <div class="progress">
+            <div id="progressBar" class="progress-bar"></div>
+        </div>
+
+        <div id="quizContainer" class="question-container"></div>
+        <div id="result" class="result"></div>
+
+        <div class="nav-buttons">
+            <button id="prevBtn" class="btn" onclick="previousQuestion()">Previous</button>
+            <button id="nextBtn" class="btn" onclick="nextQuestion()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            { question: "You’re given a blank mannequin. What’s the first thing you do?", options: ["Sketch outfit ideas", "Choose fabrics", "Look at trends", "Experiment with colors"] },
+            { question: "Which fashion capital inspires you the most?", options: ["Paris", "Milan", "New York", "Tokyo"] },
+            { question: "You see a poorly styled outfit on the street. What’s your reaction?", options: ["Mentally redesign it", "Analyze its mistakes", "Take inspiration", "Ignore it"] },
+            { question: "A client wants a futuristic look. What’s your main focus?", options: ["Fabric technology", "Unique silhouettes", "Metallic finishes", "LED elements"] },
+            { question: "Your best friend needs an outfit for a party. You…", options: ["Make something from scratch", "Give styling advice", "Lend a trendy piece", "Suggest a classic look"] }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function showQuestion() {
+            document.getElementById('quizContainer').innerHTML = `<div class="question">${questions[currentQuestion].question}</div>
+            <div class="options">
+                ${questions[currentQuestion].options.map((option, index) => `<div class="option" onclick="selectOption(${index})">${option}</div>`).join('')}
+            </div>`;
+            document.getElementById('prevBtn').disabled = currentQuestion === 0;
+        }
+
+        function selectOption(index) {
+            score += index === 0 ? 10 : 5;
+            nextQuestion();
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        function showResult() {
+            document.getElementById('quizContainer').innerHTML = '';
+            let percentage = (score / (questions.length * 10)) * 100;
+            let resultText = percentage >= 70 ? `🎨 You scored ${percentage.toFixed(2)}%! You have a strong sense of style and creativity! Fashion design is your calling!` : `🤔 You scored ${percentage.toFixed(2)}%. Maybe fashion design isn't your main strength, but you have creative potential!`;
+            document.getElementById('result').innerHTML = resultText;
+        }
+
+        showQuestion();
+    </script>
+</body>
+</html>

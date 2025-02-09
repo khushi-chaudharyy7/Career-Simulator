@@ -1,0 +1,154 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Basics</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Flexbox Basics</h1>
+        <p>Learn the core properties of CSS Flexbox.</p>
+        <div class="definitions">
+            <div class="definition">
+                <h2>display: flex;</h2>
+                <p>Defines a flex container and enables flexbox properties.</p>
+            </div>
+            <div class="definition">
+                <h2>justify-content</h2>
+                <p>Aligns flex items along the main axis (horizontal by default).</p>
+            </div>
+            <div class="definition">
+                <h2>align-items</h2>
+                <p>Aligns flex items along the cross axis (vertical by default).</p>
+            </div>
+            <div class="definition">
+                <h2>flex-direction</h2>
+                <p>Defines the direction of flex items (row, column, etc.).</p>
+            </div>
+        </div>
+        <button class="next-button" onclick="goToGame()">Start Game</button>
+    </div>
+
+    <script>
+        function goToGame() {
+            window.location.href = 'game.html';
+        }
+    </script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Basics</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Flexbox Basics</h1>
+        <p>CSS Flexbox is a layout model that allows elements to align and distribute space efficiently within a container, even when their sizes are unknown or dynamic.</p>
+        
+        <h2>1. display: flex;</h2>
+        <p>Turns an element into a flex container, enabling all flexbox properties for its child elements.</p>
+        <pre>Example:
+.container {
+    display: flex;
+}</pre>
+        
+        <h2>2. flex-direction</h2>
+        <p>Defines the direction of flex items within the container.</p>
+        <pre>Example:
+.container {
+    flex-direction: row; /* row | column | row-reverse | column-reverse */
+}</pre>
+        
+        <h2>3. justify-content</h2>
+        <p>Aligns items along the main axis.</p>
+        <pre>Example:
+.container {
+    justify-content: center; /* flex-start | flex-end | center | space-between | space-around | space-evenly */
+}</pre>
+        
+        <h2>4. align-items</h2>
+        <p>Aligns items along the cross axis.</p>
+        <pre>Example:
+.container {
+    align-items: center; /* flex-start | flex-end | center | baseline | stretch */
+}</pre>
+        
+        <h2>5. flex-wrap</h2>
+        <p>Specifies whether flex items should wrap onto multiple lines.</p>
+        <pre>Example:
+.container {
+    flex-wrap: wrap; /* nowrap | wrap | wrap-reverse */
+}</pre>
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Basics</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Understanding Flexbox</h1>
+        <p>Flexbox is a tool in CSS that helps arrange items neatly inside a container. It makes sure things stay organized, even when the screen size changes.</p>
+        
+        <h2>1. display: flex;</h2>
+        <p>This makes a container flexible, allowing it's items to adjust and align dynamically .</p>
+        <pre>Example:
+.container {
+    display: flex; <i>/* Enables flexbox */</i>
+}</pre>
+        
+        <h2>2. flex-direction</h2>
+        <p>This decides whether the items are placed in a row or a column.</p>
+        <pre>Example:
+.container {
+    flex-direction: row; <i>/* row = left to right, column = top to bottom */</i>
+}</pre>
+        
+        <h2>3. justify-content</h2>
+        <p>This controls how items spread out in a row or column.</p>
+        <pre>Example:
+.container {
+    justify-content: center; <i>/* Items move to the center */</i>
+    justify-content:flex-start|flex-end; <i> /*Items move to left|right */</i>
+    justify-content:space-around <i>/*Equal space *around* items*/</i>
+    justify-content:space-between <i>/*Max space *between*,none outside*/</i>
+    justify-content:space-evenly <i>/*Equal space *everywhere*/</i>
+}</pre>
+        
+        <h2>4. align-items</h2>
+        <p>This decides how items are arranged vertically inside the container.</p>
+        <pre>Example:
+.container {
+    align-items: center; <i>/* Items align in the middle */</i>
+    align-items:flex-start|flex-end; <i> /*Items move to left|right */</i>
+}</pre>
+        
+        <h2>5. flex-wrap</h2>
+        <p>When there are too many items, this makes them wrap onto the next line instead of shrinking.</p>
+        <pre>Example:
+.container {
+    flex-wrap: wrap; /* Items move to the next row if needed */
+}</pre>
+    </div>
+    <button class="next-button" onclick="goToGame()">Start Game</button>
+    <script>
+        function goToGame() {
+            window.location.href = "game1.html";
+        }
+    </script>
+</body>
+</html>
+

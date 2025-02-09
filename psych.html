@@ -1,0 +1,28 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="psych.css">
+</head>
+<body>
+    <div class="quiz-container">
+
+        <div id="progress-container" style="width: 100%; background: #eee; height: 20px; border-radius: 10px; margin-bottom: 10px;">
+            <div id="progress-bar" style="width: 0%; height: 30%; background: #4caf50; border-radius: 10px;"></div>
+        </div>
+        <p id="progress-text">Progress: 0%</p>
+        
+
+       
+
+        <h2 id="question-text"></h2>
+        <div id="options"></div>
+        <button id="next-button" onclick="nextQuestion()" disabled>Next</button>
+    </div>
+
+    <script src="psych.js"></script>
+</body>
+</html>

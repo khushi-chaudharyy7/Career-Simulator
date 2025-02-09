@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Game - Level 4</title>
+    <link rel="stylesheet" href="game4.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Flexbox Game - Level 4</h1>
+        <p><strong>Task:</strong> Arrange the boxes **in the center of the container** (both horizontally & vertically).</p>
+        
+        <div class="playground">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+        </div>
+
+        <label for="codeInput">Write your CSS:</label>
+        <input type="text" id="codeInput" placeholder="type your answer">
+        
+        <button onclick="applyCSS()">Run</button>
+        <button onclick="resetCSS()">Reset</button>
+
+        <!-- <button class="next-button" onclick="nextLevel()">Next</button> -->
+        <button class="next-button" onclick="validateAndProceed('game5.html')">Next</button>
+
+    </div>
+
+    <script>
+        function applyCSS() {
+            let code = document.getElementById("codeInput").value;
+            document.querySelector(".playground").style = code;
+        }
+
+        function resetCSS() {
+            document.querySelector(".playground").style = "";
+            document.getElementById("codeInput").value = "";
+        }
+
+        function nextLevel() {
+            window.location.href = "game5.html"; // Moves to Level 5
+        }
+        function validateAndProceed(nextPage) {
+        let codeInput = document.getElementById("codeInput").value.trim();
+
+            if (codeInput === "") {
+                alert("Please enter your CSS code before moving to the next level!");
+            }else if (codeInput !== "justify-content:center;align-items:center;") {
+                alert("Incorrect CSS! Try again.")
+            }else {
+                window.location.href = nextPage;
+            }
+        }
+    </script>
+</body>
+</html>
